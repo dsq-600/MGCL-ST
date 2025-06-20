@@ -112,7 +112,7 @@ class MGCL():
         self.features_a = torch.FloatTensor(self.adata.obsm['feat_a'].copy()).to(self.device)
         self.label_CSL = torch.FloatTensor(self.adata.obsm['label_CSL']).to(self.device)
         self.adj = self.adata.obsm['adj']
-        self.adj_s = self.adata.obsm['adj_s']
+        self.adj_s = torch.FloatTensor(self.adata.obsm['adj_s'].copy()).to(self.device)
         self.graph_neigh = torch.FloatTensor(self.adata.obsm['graph_neigh'].copy() + np.eye(self.adj.shape[0])).to(self.device)
     
         self.dim_input = self.features.shape[1]
